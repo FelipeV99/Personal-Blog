@@ -1,0 +1,67 @@
+.post-img {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.container-card {
+  width: 100%;
+  margin: 1rem auto 1rem;
+}
+
+.tag-and-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-tag {
+  color: #39B67A;
+}
+
+.flex-me {
+  display: flex;
+}
+
+.bottom-left {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.div-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.div-name-and-info {
+  width: 90%;
+}
+
+.bottom-whole-left {
+  width: 80%;
+}
+
+.caption-p {
+  font-size: 14px;
+  color: #A3A3A3;
+  line-height: 14px;
+}
+
+.img-div {
+  width: 20%;
+}
+
+.div-profile-img {
+  display: flex;
+  margin: auto;
+  width: auto;
+  align-content: center;
+}
+
+.profile-img {
+  height: 2rem;
+  width: auto;
+  border-radius: 100%;
+}/*# sourceMappingURL=postcard.css.map */

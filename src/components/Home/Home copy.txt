@@ -1,0 +1,44 @@
+import { useNavigate, Link } from "react-router-dom";
+import { db } from '../../firebase-config'
+import { collection, doc, deleteDoc } from 'firebase/firestore'
+import { useCollection } from 'react-firebase-hooks/firestore'
+const Home = () => {
+  const navigate = useNavigate();
+  const postsCollectionRef = collection(db, "posts")
+  const [value, loading, error] = useCollection(postsCollectionRef)
+
+  const deletePostInDB = async (id) => {
+    console.log("i want to delete", id)
+    const postsDoc = doc(db, "posts", id)
+    await deleteDoc(postsDoc)
+  }
+
+  if (!loading) {
+    return (
+      <div className="global-container">
+        <button className="btn-pri" onClick={() => { navigate("/create-blog") }}>Create New Blog</button>
+        <h1>Posts</h1>
+        <div>{value.docs.map((doc) => {
+          return (<div key={doc.id}><h2>{doc.data().title}</h2>
+            <p>{doc.data().date}</p>
+            <p>{doc.data().author}</p>
+            <p>{doc.data().content}</p>
+            <p>{doc.id}</p>
+            <Link to={"/edit/"+doc.id}><button className="btn-sec">Edit</button></Link>
+            <button className="btn-delete" onClick={() => { deletePostInDB(doc.id) }}>Delete</button>
+          </div>);
+        })}</div>
+      </div>
+    )
+  } else {
+    return (
+      <div className="global-container">
+      <button className="btn-pri" onClick={() => { navigate("/create-blog") }}>Create New Blog</button>
+      <h1>Posts</h1>
+      <h3>Loadin, holon</h3>
+      </div>
+    )
+  }
+}
+
+export default Home

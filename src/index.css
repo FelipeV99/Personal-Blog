@@ -1,13 +1,83 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "hind";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #f0f0f0;
+  color: #484848;
 }
+body button {
+  border: none;
+  font-weight: bolder;
+}
+
+h5 {
+  font-size: 24px;
+  color: black;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+
+.global-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-pri {
+  padding: 0.8rem 0.5rem 0.8rem;
+  background-color: #484848;
+  color: white;
+  border-radius: 2px;
+}
+
+.btn-sec {
+  padding: 0.8rem 0.5rem 0.8rem;
+  box-shadow: inset 0px 0px 0px 2px #484848;
+}
+
+.btn-delete {
+  padding: 0.8rem 0.5rem 0.8rem;
+  background-color: #dc5f5f;
+  color: white;
+  border-radius: 2px;
+}
+
+.body-squished {
+  font-weight: 400;
+  line-height: 1.2rem;
+  font-size: 16px;
+}
+
+h6 {
+  font-weight: 500;
+  line-height: 1.5rem;
+  font-size: 21px;
+}
+
+.icon-small {
+  color: #A3A3A3;
+}
+
+.grey-2 {
+  color: #757575;
+}
+
+.dark-grey {
+  color: #444444;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.container-20 {
+  width: 80%;
+  margin: auto;
+  padding: 4rem 0 0;
+}/*# sourceMappingURL=index.css.map */
