@@ -26,13 +26,13 @@ const PostCard = (props) => {
         }
         getPosts()
     }, [])
-    
+
     return (
         <>
             {posts.map((post) => {
                 return (
                     <Link key={post.id} to={"/latest-posts/"+post.id}>
-                        <div  className='container-card'>
+                        <div className='container-card'>
 
                             <div className="tag-and-options">
                                 <p className='p-tag'>{post.tags}</p>

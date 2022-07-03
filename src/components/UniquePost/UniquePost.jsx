@@ -1,8 +1,11 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
 import { collection, doc, getDocs } from 'firebase/firestore'
+import { AiOutlineClockCircle, AiOutlineComment, AiOutlineEllipsis } from 'react-icons/ai'
+import './uniquePost.css'
 const UniquePost = () => {
+  const navigate = useNavigate()
   const params = useParams()
   const [posts, setPosts] = useState([])
   //we get the posts collection using the db we configured
@@ -26,16 +29,35 @@ const UniquePost = () => {
   }, [])
 
   const uniquePost = posts.filter((post) => post.id == params.id)[0]
-  
+
   if (typeof uniquePost === 'undefined') {
-  }else{
+  } else {
     return (
       <>
-        <p>{uniquePost.id}</p>
-        <p>{uniquePost.title}</p>
-        <img src={uniquePost.postImage} alt={uniquePost.title} />
-        <p>{uniquePost.content}</p>
+        {/* <p>{uniquePost.id}</p> */}
+        <button onClick={()=>{navigate(-1)}}>Back</button>
+        <h5 className='container-85 margin-h5'>{uniquePost.title}</h5>
         
+        <div className='container-85 flex-me'>
+          <div className='div-profile-img'>
+            <img className='profile-img' src={uniquePost.profileImage} alt="Author" />
+          </div>
+          <div className='div-name-and-info'>
+            <p className='body-squished grey-2 font-medium'>{uniquePost.author}</p>
+            <div className='div-info'>
+              <AiOutlineClockCircle className='icon-small' />
+              <p className='caption-p body-squished'>{uniquePost.date}</p>
+              <AiOutlineComment className='icon-small' />
+              <p className='caption-p body-squished'>2 comments</p>
+            </div>
+          </div>
+        </div>
+        <img className='main-img' src={uniquePost.postMainImage} alt={uniquePost.title} />
+
+        <div className="container-85">
+          <p className="text-content">{uniquePost.content}</p>
+        </div>
+       
       </>
     )
   }

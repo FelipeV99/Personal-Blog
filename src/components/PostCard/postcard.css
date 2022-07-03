@@ -1,14 +1,3 @@
-.post-img {
-  border-radius: 5px;
-  width: 100%;
-  height: auto;
-}
-
-.container-card {
-  width: 100%;
-  margin: 1rem auto 1rem;
-}
-
 .tag-and-options {
   display: flex;
   justify-content: space-between;
@@ -16,10 +5,6 @@
 
 .p-tag {
   color: #39B67A;
-}
-
-.flex-me {
-  display: flex;
 }
 
 .bottom-left {
@@ -58,10 +43,4 @@
   margin: auto;
   width: auto;
   align-content: center;
-}
-
-.profile-img {
-  height: 2rem;
-  width: auto;
-  border-radius: 100%;
 }/*# sourceMappingURL=postcard.css.map */

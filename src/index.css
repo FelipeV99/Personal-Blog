@@ -80,4 +80,41 @@ h6 {
   width: 80%;
   margin: auto;
   padding: 4rem 0 0;
+}
+
+.profile-img {
+  height: 2rem;
+  width: auto;
+  border-radius: 100%;
+}
+
+.post-img {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.container-card {
+  width: 100%;
+  margin: 1rem auto 1rem;
+}
+
+.container-85 {
+  width: 85%;
+  margin: auto;
+}
+
+.text-content {
+  text-align: justify;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flex-me {
+  display: flex;
+}
+
+.margin-h5 {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
 }/*# sourceMappingURL=index.css.map */
