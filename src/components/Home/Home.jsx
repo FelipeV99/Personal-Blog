@@ -21,6 +21,7 @@ const Home = () => {
             <p>{post.date}</p>
             <button>Delete</button>
             <button onClick={()=>{navigate("/edit/"+post.id)}}>Edit</button>
+            <button onClick={()=>{navigate("/latest-posts")}}>Latest posts</button>
           </div>
         )
        
