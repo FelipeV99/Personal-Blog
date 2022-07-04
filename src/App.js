@@ -8,6 +8,7 @@ import EditPost from './components/EditPost/EditPost'
 import { db } from './firebase-config.js'
 import { collection, getDocs } from 'firebase/firestore'
 import { createContext, useEffect, useState } from "react";
+import MyPosts from './components/MyPosts/MyPosts'
 
 export const postsContext = createContext(null)
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/latest-posts/" element ={<LatestPosts />} />
           <Route path="/latest-posts/:id" element ={<UniquePost />} />
           <Route path="/edit/:id" element ={<EditPost />} />
+          <Route path="/myPosts/:id" element ={<MyPosts />} />
         </Routes>
       </Router>
       </postsContext.Provider>

@@ -24,7 +24,6 @@ const Home = () => {
             <button onClick={()=>{navigate("/latest-posts")}}>Latest posts</button>
           </div>
         )
-       
       })}
     </div>
     </>
