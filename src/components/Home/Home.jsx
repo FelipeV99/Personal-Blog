@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { db } from '../../firebase-config'
 // import { collection, doc, deleteDoc, getDocs } from 'firebase/firestore'
 import { useContext } from "react";
@@ -11,6 +11,7 @@ const Home = () => {
   return(
     <>
     <div>
+      <button className="btn-pri" onClick={()=>{navigate("/signIn")}}>Sign Up/In</button>
       {posts.map((post) =>{
         return(
           <div key={post.id}>
@@ -19,9 +20,9 @@ const Home = () => {
             <p>{post.author}</p>
             <p>{post.content}</p>
             <p>{post.date}</p>
-            <button>Delete</button>
-            <button onClick={()=>{navigate("/edit/"+post.id)}}>Edit</button>
-            <button onClick={()=>{navigate("/latest-posts")}}>Latest posts</button>
+            <button className="btn-delete">Delete</button>
+            <button className="btn-sec" onClick={()=>{navigate("/edit/"+post.id)}}>Edit</button>
+            <button className="btn-pri" onClick={()=>{navigate("/latest-posts")}}>Latest posts</button>
           </div>
         )
       })}

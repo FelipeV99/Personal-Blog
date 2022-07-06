@@ -1,0 +1,40 @@
+$font-weights: (
+    "thin":100,
+    "extra-light": 200,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700 
+);
+
+h5{
+    font-size: 24px;
+    color:black;
+    font-weight: map-get($map: $font-weights, $key: semibold);
+    font-family: 'Montserrat';
+}
+
+h6{
+    font-weight:map-get($map: $font-weights, $key: medium);
+    line-height: 1.5rem;
+    font-size: 21px;
+    font-family: 'Hind';
+}
+
+.body-squished{
+    font-weight: 400;
+    line-height: 1.2rem;
+    font-size: 16px;
+}
+
+.text-content{
+    text-align: justify;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+
+.margin-h5{
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}

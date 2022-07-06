@@ -2,8 +2,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
 import { collection, doc, getDocs } from 'firebase/firestore'
-import { AiOutlineClockCircle, AiOutlineComment, AiOutlineEllipsis } from 'react-icons/ai'
+import { AiOutlineClockCircle, AiOutlineComment } from 'react-icons/ai'
 import './uniquePost.css'
+
 const UniquePost = () => {
   const navigate = useNavigate()
   const params = useParams()

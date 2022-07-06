@@ -31,7 +31,7 @@ const PostCard = (props) => {
         <>
             {posts.map((post) => {
                 return (
-                    <Link key={post.id} to={"/latest-posts/"+post.id}>
+                    <Link key={post.id} to={"/latest-posts/" + post.id}>
                         <div className='container-card'>
 
                             <div className="tag-and-options">
@@ -51,7 +51,10 @@ const PostCard = (props) => {
                                         <div className='div-name-and-info'>
                                             <p className='body-squished grey-2 font-medium'>{post.author}</p>
                                             <div className='div-info'>
+
                                                 <AiOutlineClockCircle className='icon-small' />
+
+
                                                 <p className='caption-p body-squished'>{post.date}</p>
                                                 <AiOutlineComment className='icon-small' />
                                                 <p className='caption-p body-squished'>2 comments</p>

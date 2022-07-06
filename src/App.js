@@ -9,6 +9,7 @@ import { db } from './firebase-config.js'
 import { collection, getDocs } from 'firebase/firestore'
 import { createContext, useEffect, useState } from "react";
 import MyPosts from './components/MyPosts/MyPosts'
+import SignIn from './SignIn/SignIn'
 
 export const postsContext = createContext(null)
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/latest-posts/:id" element ={<UniquePost />} />
           <Route path="/edit/:id" element ={<EditPost />} />
           <Route path="/myPosts/:id" element ={<MyPosts />} />
+          <Route path="/signIn" element={<SignIn />} />
         </Routes>
       </Router>
       </postsContext.Provider>
