@@ -17,7 +17,7 @@ const SignIn = (props) => {
         fetch("https://api.imgur.com/3/upload",{
             method: 'POST',
             headers:{
-                'Authorization': 'Client-ID {{d90892906705b2e}}'
+                'Authorization': 'Client-ID d90892906705b2e'
             },
             body: formData
         }).then(data => data.json()).then(data =>{
