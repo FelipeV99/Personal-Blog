@@ -8,11 +8,17 @@
   font-family: "hind";
 }
 
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+
 h5 {
+  font-family: "Montserrat";
   font-size: 24px;
   color: black;
   font-weight: 600;
-  font-family: "Montserrat";
 }
 
 h6 {
@@ -47,8 +53,16 @@ h6 {
   color: #444444;
 }
 
+.main-blue-bg {
+  background-color: #111D4A;
+}
+
+.light {
+  color: #FFF8F0;
+}
+
 body {
-  background-color: #f0f0f0;
+  background-color: #FFF8F0;
   color: #484848;
 }
 body button {
@@ -59,14 +73,21 @@ body button {
 .btn-pri {
   padding: 0.8rem 0.5rem 0.8rem;
   background-color: #484848;
-  color: white;
+  color: #FFF8F0;
+  border-radius: 2px;
+}
+
+.btn-pri-alt {
+  padding: 0.8rem 0.5rem 0.8rem;
+  background-color: #FFF8F0;
+  color: #111D4A;
   border-radius: 2px;
 }
 
 .btn-delete {
   padding: 0.8rem 0.5rem 0.8rem;
   background-color: #dc5f5f;
-  color: white;
+  color: #FFF8F0;
   border-radius: 2px;
 }
 

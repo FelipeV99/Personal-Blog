@@ -15,7 +15,7 @@ $global-container: 80%;
 
 
 body{
-    background-color: $main-bg;
+    background-color: $main-white;
     color: $grey-1;
 
     button{
@@ -25,11 +25,15 @@ body{
 }
 
 .btn-pri{
-@include btn-mix($grey-1, white);
+@include btn-mix($grey-1, $main-white);
+}
+
+.btn-pri-alt{
+    @include btn-mix($main-white, $main-blue);
 }
 
 .btn-delete{
-    @include btn-mix($my-red, white);
+    @include btn-mix($my-red, $main-white);
 }
 
 .btn-sec{

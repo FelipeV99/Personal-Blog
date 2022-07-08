@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
-import { collection, doc, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { AiOutlineClockCircle, AiOutlineComment } from 'react-icons/ai'
 import './uniquePost.css'
 
@@ -29,7 +29,7 @@ const UniquePost = () => {
     getPosts()
   }, [])
 
-  const uniquePost = posts.filter((post) => post.id == params.id)[0]
+  const uniquePost = posts.filter((post) => post.id === params.id)[0]
 
   if (typeof uniquePost === 'undefined') {
   } else {

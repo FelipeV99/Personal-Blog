@@ -1,8 +1,10 @@
-$main-bg: #f0f0f0;
+$main-white: #FFF8F0;
 $grey-1: #484848;
 $my-red:#dc5f5f;
 $grey-2: #757575;
 $dark-grey: #444444;
+$main-blue: #111D4A;
+
 
 .grey-2{
     color:$grey-2;
@@ -10,4 +12,12 @@ $dark-grey: #444444;
 
 .dark-grey{
     color:$dark-grey;
+}
+
+.main-blue-bg{
+    background-color: $main-blue;
+}
+
+.light{
+    color: $main-white;
 }

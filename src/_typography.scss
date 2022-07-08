@@ -8,11 +8,17 @@ $font-weights: (
     "bold": 700 
 );
 
+h1{
+    font-size: 32px;
+    font-weight: map-get($map: $font-weights, $key: semibold);
+    font-family: 'Montserrat';
+}
+
 h5{
+    font-family: 'Montserrat';
     font-size: 24px;
     color:black;
     font-weight: map-get($map: $font-weights, $key: semibold);
-    font-family: 'Montserrat';
 }
 
 h6{
