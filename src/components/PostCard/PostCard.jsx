@@ -33,28 +33,25 @@ const PostCard = (props) => {
                 return (
                     <Link key={post.id} to={"/posts/" + post.id}>
                         <div className='container-card'>
-
-                            <div className="tag-and-options">
-                                <p className='p-tag'>{post.tags}</p>
-                                <AiOutlineEllipsis size="20" />
+                            <div className='upper'>
+                                <div className="tag-and-author">
+                                    <p className='p-tag body-squished'>{post.tags +"."}</p>
+                                    <p className='grey-2 font-medium p-tag body-squished'>{"By " + post.author}</p>
+                                </div>
+                            <AiOutlineEllipsis size="20" />
                             </div>
                             <div className='flex-me'>
                                 <div className='bottom-whole-left'>
                                     <div className='title-description'>
-                                        <h6 className='dark-grey'>{post.title}</h6>
-                                        <p className='body-squished grey-2'>{post.content.substring(0, 66)}...</p>
+                                        <h6 className='dark-grey title-margin'>{post.title}</h6>
                                     </div>
                                     <div className='bottom-left'>
-                                        <div className='div-profile-img'>
-                                            <img className='profile-img' src={post.profileImage} alt="Author" />
-                                        </div>
                                         <div className='div-name-and-info'>
-                                            <p className='body-squished grey-2 font-medium'>{post.author}</p>
                                             <div className='div-info'>
                                                 <AiOutlineClockCircle className='icon-small' />
-                                                <p className='caption-p body-squished'>{post.date}</p>
+                                                <p className='caption-p'>{post.date}</p>
                                                 <AiOutlineComment className='icon-small' />
-                                                <p className='caption-p body-squished'>2 comments</p>
+                                                <p className='caption-p'>2 comments</p>
                                             </div>
                                         </div>
 

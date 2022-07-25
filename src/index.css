@@ -58,11 +58,19 @@ h6 {
 }
 
 .light {
-  color: #FFF8F0;
+  color: #F6F6F6;
+}
+
+.font-dark1 {
+  color: #1D1D1D;
+}
+
+.purple {
+  color: #4C3B4D;
 }
 
 body {
-  background-color: #FFF8F0;
+  background-color: #F6F6F6;
   color: #484848;
 }
 body button {
@@ -73,13 +81,13 @@ body button {
 .btn-pri {
   padding: 0.8rem 0.5rem 0.8rem;
   background-color: #484848;
-  color: #FFF8F0;
+  color: #F6F6F6;
   border-radius: 2px;
 }
 
 .btn-pri-alt {
   padding: 0.8rem 0.5rem 0.8rem;
-  background-color: #FFF8F0;
+  background-color: #F6F6F6;
   color: #111D4A;
   border-radius: 2px;
 }
@@ -87,7 +95,7 @@ body button {
 .btn-delete {
   padding: 0.8rem 0.5rem 0.8rem;
   background-color: #dc5f5f;
-  color: #FFF8F0;
+  color: #F6F6F6;
   border-radius: 2px;
 }
 
@@ -138,4 +146,8 @@ body button {
   align-items: center;
   gap: 0.3rem;
   width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */

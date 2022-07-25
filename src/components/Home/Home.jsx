@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import './home.css'
 import '../LatestPosts/LatestPosts.jsx'
 import LatestPosts from "../LatestPosts/LatestPosts.jsx";
@@ -6,19 +5,21 @@ import { useState } from "react";
 import SignIn from '../SignInModal/SignInModal.jsx'
 
 const Home = () => {
-  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false)
-  return(
+  return (
     <>
-    <div className="div-hero main-blue-bg">
-      <h1 className="light">Find The Best Stories</h1>
-      <p className="light">You can also write and share you ideas</p>
-      <button className="btn-pri-alt" onClick={()=>{setIsOpen(true)}}>Sign Up/In</button>
-      <SignIn open={isOpen} close={()=>{setIsOpen(false)}}> </SignIn>
-      
-
-    </div>
-    <LatestPosts />
+      <div className="div-hero">
+        <img className="hero-img" src={require('../../assets/HeroBg.png')} alt="pen" />
+        <div className="hero-content">
+          <h1 className="font-dark1">READ</h1>
+          <h1 className="font-dark1">WRITE</h1>
+          <h1 className="font-dark1">SHARE</h1>
+          <p className="font-dark1 hero-copy">Your best ideas, stories & opinions</p>
+          <button className="btn-pri-alt"  id="cta" onClick={() => { setIsOpen(true) }}>Get Started</button>
+          <SignIn open={isOpen} close={() => { setIsOpen(false) }}> </SignIn>
+        </div>
+      </div>
+      <LatestPosts />
     </>
   )
 

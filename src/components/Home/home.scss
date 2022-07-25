@@ -1,7 +1,40 @@
+@import "../../colors";
+
 .div-hero{
-    height: 30vh;
+    height: 38vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-img{
+    position: absolute;
+    height: auto;
+    width: 100vw;
+    z-index: 0;
+}
+
+.hero-content{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    height: auto;
+    margin-bottom: 2rem; 
+    margin-left: 10rem;
+    align-items: center;
+    // justify-content: ;
+}
+
+.hero-copy{
+    text-align: center;
+    margin: .5rem 0 .5rem 0;
+}
+
+#cta{
+    background-color: $purple;
+    color: $main-white;
+    padding: 0.8rem 3rem 0.8rem;
 }

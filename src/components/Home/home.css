@@ -1,7 +1,61 @@
+.grey-2 {
+  color: #757575;
+}
+
+.dark-grey {
+  color: #444444;
+}
+
+.main-blue-bg {
+  background-color: #111D4A;
+}
+
+.light {
+  color: #F6F6F6;
+}
+
+.font-dark1 {
+  color: #1D1D1D;
+}
+
+.purple {
+  color: #4C3B4D;
+}
+
 .div-hero {
-  height: 30vh;
+  height: 38vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-img {
+  position: absolute;
+  height: auto;
+  width: 100vw;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  margin-bottom: 2rem;
+  margin-left: 10rem;
+  align-items: center;
+}
+
+.hero-copy {
+  text-align: center;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+#cta {
+  background-color: #4C3B4D;
+  color: #F6F6F6;
+  padding: 0.8rem 3rem 0.8rem;
 }/*# sourceMappingURL=home.css.map */

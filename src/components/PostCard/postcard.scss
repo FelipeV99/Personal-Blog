@@ -1,8 +1,12 @@
 $metric:0.0625;
   
-.tag-and-options{
+.upper{
     display: flex;
     justify-content: space-between;
+}
+.tag-and-author{
+    display: flex;
+    gap: .5rem;
 }
 
 .p-tag{
@@ -40,4 +44,8 @@ $metric:0.0625;
     margin: auto;
     width:auto;
     align-content: center;
+}
+
+.title-margin{
+margin: 0 .5rem .5rem 0;
 }

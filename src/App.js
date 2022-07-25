@@ -31,7 +31,7 @@ function App() {
     <>
     <postsContext.Provider value={{posts}}>
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-blog" element={<CreatePost />} />
@@ -40,6 +40,7 @@ function App() {
           <Route path="/myPosts/:id" element ={<MyPosts />} />
           {/* <Route path="/signIn" element={<SignIn />} /> */}
         </Routes>
+        <NavBar />
       </Router>
       </postsContext.Provider>
     </>

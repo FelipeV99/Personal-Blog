@@ -1,6 +1,11 @@
-.tag-and-options {
+.upper {
   display: flex;
   justify-content: space-between;
+}
+
+.tag-and-author {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .p-tag {
@@ -36,4 +41,8 @@
   margin: auto;
   width: auto;
   align-content: center;
+}
+
+.title-margin {
+  margin: 0 0.5rem 0.5rem 0;
 }/*# sourceMappingURL=postcard.css.map */

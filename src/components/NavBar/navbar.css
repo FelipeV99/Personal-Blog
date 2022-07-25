@@ -1,0 +1,36 @@
+.grey-2 {
+  color: #757575;
+}
+
+.dark-grey {
+  color: #444444;
+}
+
+.main-blue-bg {
+  background-color: #111D4A;
+}
+
+.light {
+  color: #F6F6F6;
+}
+
+.font-dark1 {
+  color: #1D1D1D;
+}
+
+.purple {
+  color: #4C3B4D;
+}
+
+.my-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1.5rem 1rem;
+}/*# sourceMappingURL=navbar.css.map */
