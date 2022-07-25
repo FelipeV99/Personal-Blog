@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { AiOutlineClockCircle, AiOutlineComment, AiOutlineEllipsis } from 'react-icons/ai'
+import { AiOutlineClockCircle, AiOutlineComment } from 'react-icons/ai'
 import './postcard.css'
 import { db } from '../../firebase-config'
 import { collection, doc, getDocs } from 'firebase/firestore'
@@ -38,7 +38,6 @@ const PostCard = (props) => {
                                     <p className='p-tag body-squished'>{post.tags +"."}</p>
                                     <p className='grey-2 font-medium p-tag body-squished'>{"By " + post.author}</p>
                                 </div>
-                            <AiOutlineEllipsis size="20" />
                             </div>
                             <div className='flex-me'>
                                 <div className='bottom-whole-left'>
