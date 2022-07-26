@@ -43,4 +43,22 @@
   right: 0;
   background-color: #F6F6F6;
   z-index: 2;
+}
+
+.margin-bottom-h1 {
+  margin-bottom: 1rem;
+}
+
+#or-p {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.align-icon {
+  margin-top: 0.5rem;
+  align-self: center;
+}
+
+.btn-signup {
+  width: 16rem;
 }/*# sourceMappingURL=signInModal.css.map */

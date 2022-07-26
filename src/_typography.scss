@@ -8,6 +8,10 @@ $font-weights: (
     "bold": 700 
 );
 
+p{
+    font-family: 'GoudyOldStyle';
+}
+
 h1{
     font-size: 32px;
     font-weight: map-get($map: $font-weights, $key: semibold);
@@ -22,16 +26,17 @@ h5{
 }
 
 h6{
-    font-weight:map-get($map: $font-weights, $key: medium);
+    font-family:'Montserrat';
+    font-weight:map-get($map: $font-weights, $key: semibold);
     line-height: 1.5rem;
     font-size: 21px;
-    font-family: 'Hind';
+    
 }
 
 .body-squished{
     font-weight: 400;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .text-content{

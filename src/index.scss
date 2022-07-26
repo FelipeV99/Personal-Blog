@@ -1,7 +1,16 @@
+@font-face {
+    font-family:'GoudyOldStyle';
+    src: url(../src/assets/Fonts/GOUDOS.ttf);
+}
+@font-face {
+    font-family: 'GoudyOldStyleBold';
+    src: url(../src/assets/Fonts/GOUDOSB.TTF);
+}
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import './config';
 @import './typography';
 @import './colors';
+
 
 $global-container: 80%;
 
@@ -20,7 +29,7 @@ body{
 
     button{
         border:none;
-        font-weight: bolder;
+        font-family: 'GoudyOldStyleBold';
     }
 }
 
