@@ -17,31 +17,6 @@ const SignIn = (props) => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const confirmPasswordRef = useRef()
-    const { signup, currentUser } = useAuth()
-    const [error, setError] = useState("")
-    const [loading, setLoading] = useState(false)
-  
-    async function handleSubmit(e) {
-      e.preventDefault()
-      console.log("ayo")
-      console.log(passwordRef.current)
-      console.log(confirmPasswordRef.current)
-      console.log(emailRef.current)
-  
-      if (passwordRef.current !== confirmPasswordRef.current) {
-        return setError("Passwords do not match")
-      }
-  
-      try {
-        setError("")
-        setLoading(true)
-        await signup(emailRef.currrent, passwordRef.current)
-      } catch {
-        setError("Failed to create an account")
-      }
-  
-      setLoading(false)
-    }
 
     // const placeImage = (e) => {
     //     e.preventDefault();
@@ -59,14 +34,14 @@ const SignIn = (props) => {
     //     }).catch(error => console.log(error))
     // }
 
-    // const register = async () => {
-    //     try {
-    //         const newUser = await createUserWithEmailAndPassword(auth, userRef.current, passRef.current)
-    //         console.log(newUser)
-    //     } catch {
-    //         console.log("error")
-    //     }
-    // }
+    const register = async () => {
+        try {
+            const newUser = await createUserWithEmailAndPassword(auth, userRef.current, passwordRef.current)
+            console.log(newUser)
+        } catch {
+            console.log("error")
+        }
+    }
 
     // const logout = async () => {
     //     await signOut(auth)
@@ -110,42 +85,20 @@ const SignIn = (props) => {
                 <div className='modal-style'>
                     {/* <button className='btn-sec' onClick={props.close}>Back</button> */}
                     <h1 className="text-align-center">Welcome to Blo</h1>
-<<<<<<< HEAD
-                    <h1 className="text-align-center margin-bottom-h1">Sign Up</h1>
-                    <p>{currentUser && currentUser.email}</p>
-                    <p>{error}</p>
-                    <ButtonSign service='Google' />
-                    <ButtonSign service='Facebook'/>
-                    <p id="or-p">or</p>
-                    <Field service="Name" passName={passName}/>
-                    <Field service="Mail" passEmail={passEmail} />
-                    <Field service="Password" passPassword={passPassword}/>
-                    <Field service="Confirm Password" passConfirmPassword={passConfirmPassword}/>
-                    {/* <label>Name</label>
-=======
                     <h1 className="text-align-center">Sign Up</h1>
                     <ButtonSign />
                     <ButtonSign />
                     <p>or sign up with email</p>
                     <label>Name</label>
->>>>>>> parent of 612e2ca (aesthetic signup)
                     <input type="text" onChange={(e) => { userRef.current = e.target.value }} ref={userRef} />
                     <label>Mail</label>
-                    <input type="text" onChange={(e) => { mailRef.current = e.target.value }} ref={mailRef} />
+                    <input type="text" onChange={(e) => { emailRef.current = e.target.value }} ref={emailRef} />
                     <label>password</label>
-                    <input type="password" onChange={(e) => { passRef.current = e.target.value }} ref={passRef} />
-<<<<<<< HEAD
-                    <label>Confirm Password</label>
-                    <input type="password" onChange={(e) => { passRef.current = e.target.value }} ref={passRef} /> */}
-                    <button className='btn-pri btn-signup' onClick={handleSubmit}>Sign Up</button>
-                    <p className='text-align-center'>Already have an account? <a>Login</a></p>
-                    <AiOutlineClose className="align-icon" onClick={props.close} size={20}/>
-=======
-                    <input type="password" onChange={(e) => { passRef.current = e.target.value }} ref={passRef} />
+                    <input type="password" onChange={(e) => { passwordRef.current = e.target.value }} ref={passwordRef} />
+                    <input type="password" onChange={(e) => { passwordRef.current = e.target.value }} ref={passwordRef} />
                     <button className='btn-pri' onClick={() => { register() }}>Sign Up</button>
                     <p>Already have an account?</p><p>Login</p>
                     <AiOutlineClose onClick={props.close} size={20}/>
->>>>>>> parent of 612e2ca (aesthetic signup)
 
                     {/* <button onClick={() => { login() }}>Login</button>
                     <button onClick={() => { logout() }}>Logout</button>
