@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import ReactDom from 'react-dom'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../../firebase-config.js'
@@ -7,15 +7,42 @@ import { async } from '@firebase/util'
 import ButtonSign from '../Buttons/ButtonSign/ButtonSign.jsx'
 import Field from '../Field/Field.jsx'
 import {AiOutlineClose} from 'react-icons/ai'
+import {useAuth} from '../Contexts/AuthContext'
 
 
 const SignIn = (props) => {
     // const imgRef = useRef()
     // const inputImageRef = useRef()
-
+    const nameRef = useRef()
     const userRef = useRef()
-    const mailRef = useRef()
-    const passRef = useRef()
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const confirmPasswordRef = useRef()
+    const { signup, currentUser } = useAuth()
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+  
+    async function handleSubmit(e) {
+      e.preventDefault()
+      console.log("ayo")
+      console.log(passwordRef.current)
+      console.log(confirmPasswordRef.current)
+      console.log(emailRef.current)
+  
+      if (passwordRef.current !== confirmPasswordRef.current) {
+        return setError("Passwords do not match")
+      }
+  
+      try {
+        setError("")
+        setLoading(true)
+        await signup(emailRef.currrent, passwordRef.current)
+      } catch {
+        setError("Failed to create an account")
+      }
+  
+      setLoading(false)
+    }
 
     // const placeImage = (e) => {
     //     e.preventDefault();
@@ -33,30 +60,48 @@ const SignIn = (props) => {
     //     }).catch(error => console.log(error))
     // }
 
-    const register = async () => {
-        try {
-            const newUser = await createUserWithEmailAndPassword(auth, userRef.current, passRef.current)
-            console.log(newUser)
-        } catch {
-            console.log("erorr")
-        }
-    }
+    // const register = async () => {
+    //     try {
+    //         const newUser = await createUserWithEmailAndPassword(auth, userRef.current, passRef.current)
+    //         console.log(newUser)
+    //     } catch {
+    //         console.log("error")
+    //     }
+    // }
 
-    const logout = async () => {
-        await signOut(auth)
+    // const logout = async () => {
+    //     await signOut(auth)
 
-    }
+    // }
 
-    const login = async () => {
-        try {
-            const newUser = await signInWithEmailAndPassword(auth, userRef.current, passRef.current)
-            console.log("lemme get in this bitch",newUser)
+    // const login = async () => {
+    //     try {
+    //         const newUser = await signInWithEmailAndPassword(auth, userRef.current, passRef.current)
+    //         console.log("lemme get in this bitch",newUser)
             
-        } catch {
-            console.log("erorr")
-        }
+    //     } catch {
+    //         console.log("erorr")
+    //     }
 
 
+    // }
+
+    const passName = (name) =>{
+        nameRef.current = name
+        console.log(name)
+    }
+
+    const passEmail = (email) =>{
+        emailRef.current = email
+        // console.log(email)
+    }
+    const passPassword = (password) =>{
+        passwordRef.current = password
+        console.log(password)
+    }
+    const passConfirmPassword = (confirmPassword) =>{
+        confirmPasswordRef.current = confirmPassword
+        console.log(confirmPassword)
     }
 
     if (props.open === false) return null
@@ -67,13 +112,15 @@ const SignIn = (props) => {
                     {/* <button className='btn-sec' onClick={props.close}>Back</button> */}
                     <h1 className="text-align-center">Welcome to Blo</h1>
                     <h1 className="text-align-center margin-bottom-h1">Sign Up</h1>
+                    <p>{currentUser && currentUser.email}</p>
+                    <p>{error}</p>
                     <ButtonSign service='Google' />
                     <ButtonSign service='Facebook'/>
                     <p id="or-p">or</p>
-                    <Field service="Name" />
-                    <Field service="Mail" />
-                    <Field service="Password" />
-                    <Field service="Confirm Password" />
+                    <Field service="Name" passName={passName}/>
+                    <Field service="Mail" passEmail={passEmail} />
+                    <Field service="Password" passPassword={passPassword}/>
+                    <Field service="Confirm Password" passConfirmPassword={passConfirmPassword}/>
                     {/* <label>Name</label>
                     <input type="text" onChange={(e) => { userRef.current = e.target.value }} ref={userRef} />
                     <label>Mail</label>
@@ -82,7 +129,7 @@ const SignIn = (props) => {
                     <input type="password" onChange={(e) => { passRef.current = e.target.value }} ref={passRef} />
                     <label>Confirm Password</label>
                     <input type="password" onChange={(e) => { passRef.current = e.target.value }} ref={passRef} /> */}
-                    <button className='btn-pri btn-signup' onClick={() => { register() }}>Sign Up</button>
+                    <button className='btn-pri btn-signup' onClick={handleSubmit}>Sign Up</button>
                     <p className='text-align-center'>Already have an account? <a>Login</a></p>
                     <AiOutlineClose className="align-icon" onClick={props.close} size={20}/>
 
