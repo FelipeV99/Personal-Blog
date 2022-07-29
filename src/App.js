@@ -1,19 +1,37 @@
 import Home from './components/Home/Home'
 import CreatePost from './components/CreatePost/CreatePost'
+import LatestPosts from './components/LatestPosts/LatestPosts'
 import UniquePost from './components/UniquePost/UniquePost'
 import NavBar from './components/NavBar/NavBar'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import EditPost from './components/EditPost/EditPost'
+import { db } from './firebase-config.js'
+import { collection, getDocs } from 'firebase/firestore'
+import { createContext, useEffect, useState } from "react";
 import MyPosts from './components/MyPosts/MyPosts'
-import AuthProvider from './components/Contexts/AuthContext'
+
+export const postsContext = createContext(null)
 
 
 function App() {
 
+  const [posts, setPosts] = useState([])
+  const postsCollectionRef = collection(db, "posts")
+  useEffect(()=>{
+    const getPosts = async()=>{
+      const data = await getDocs(postsCollectionRef)
+      setPosts(data.docs.map((doc)=>({
+        ...doc.data(), id:doc.id
+      })))
+    }
+    getPosts()
+  },[])
+
   return (
     <>
-    <AuthProvider>
+    <postsContext.Provider value={{posts}}>
       <Router>
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-blog" element={<CreatePost />} />
@@ -23,8 +41,8 @@ function App() {
           {/* <Route path="/signIn" element={<SignIn />} /> */}
         </Routes>
         <NavBar />
-      </Router>     
-      </AuthProvider>
+      </Router>
+      </postsContext.Provider>
     </>
   );
 }

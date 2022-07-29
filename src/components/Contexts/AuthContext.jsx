@@ -1,67 +1,27 @@
 import { useState } from 'react'
-import { useEffect } from 'react'
 import { createContext, useContext } from 'react'
 import { auth } from '../../firebase-config'
 // import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const AuthContext = createContext()
 
-// this function allows me to access context from other components
 export const useAuth = () =>{
     return useContext(AuthContext)
 }
 
-export default function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
-  const [loading, setLoading] = useState(true)
+const AuthProvider = (props) => {
+    const [currentUser, setCurrentUser] = useState()
 
-  function signup(email, password) {
-    console.log("trying to register with",email,password)
-    return auth.createUserWithEmailAndPassword(email, password)
-  }
-
-  function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
-  }
-
-  function logout() {
-    return auth.signOut()
-  }
-
-  function resetPassword(email) {
-    return auth.sendPasswordResetEmail(email)
-  }
-
-  function updateEmail(email) {
-    return currentUser.updateEmail(email)
-  }
-
-  function updatePassword(password) {
-    return currentUser.updatePassword(password)
-  }
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
-      setLoading(false)
-    })
-
-    return unsubscribe
-  }, [])
-
-  const value = {
-    currentUser,
-    login,
-    signup,
-    logout,
-    resetPassword,
-    updateEmail,
-    updatePassword
-  }
-
+    const signup = (email, password) =>{
+        return auth.createUserWithEmailAndPassword(email, password)
+    }
+     
+    const value = { currentUser}
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+        Provider
     </AuthContext.Provider>
   )
 }
+
+export default AuthProvider
