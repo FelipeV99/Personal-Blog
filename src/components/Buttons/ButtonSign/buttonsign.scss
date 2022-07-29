@@ -1,44 +1,4 @@
-.btn-sign{
-    display: flex;
-    background-color: transparent;
-    padding: 0 0.5rem 0 0;
+.button-sign{
+    background-color: grey;
     color:white;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    width: 16rem;
-}
-
-.btn-google{
-    color:#E23F36;
-    box-shadow:inset 0px 0px 0px 2px #E23F36;
-    
-}
-
-.btn-fb{
-   color: #18436E;
-   box-shadow:inset 0px 0px 0px 2px #18436E;
-}
-
-.blue-square{
-    background-color: #18436E;
-    height: 2.5rem;
-    width: 2.5rem;
-    display: grid;
-    place-items: center;
-    border-radius: 4px 0 0 4px;
-   
-}
-
-.red-square{
-    background-color: #E23F36;
-    height: 2.5rem;
-    width: 2.5rem;
-    display: grid;
-    place-items: center;
-    border-radius: 4px 0 0 4px;
-   
-}
-.btn-sign-p{
-    align-self: center;
-    margin-left: 1rem;
 }

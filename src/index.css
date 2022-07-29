@@ -1,23 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@font-face {
-  font-family: "GoudyOldStyle";
-  src: url(../src/assets/Fonts/GOUDOS.ttf);
-}
-@font-face {
-  font-family: "GoudyOldStyleBold";
-  src: url(../src/assets/Fonts/GOUDOSB.TTF);
-}
 * {
   padding: 0;
   margin: 0;
   outline: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: "GoudyOldStyle";
-}
-
-p {
-  font-family: "GoudyOldStyle";
+  font-family: "hind";
 }
 
 h1 {
@@ -34,16 +22,16 @@ h5 {
 }
 
 h6 {
-  font-family: "Montserrat";
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5rem;
   font-size: 21px;
+  font-family: "Hind";
 }
 
 .body-squished {
   font-weight: 400;
   line-height: 1.2rem;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .text-content {
@@ -87,7 +75,7 @@ body {
 }
 body button {
   border: none;
-  font-family: "GoudyOldStyleBold";
+  font-weight: bolder;
 }
 
 .btn-pri {
