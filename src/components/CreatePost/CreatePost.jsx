@@ -1,13 +1,20 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../firebase-config'
 import { collection, addDoc } from 'firebase/firestore'
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import {EditorState} from 'draft-js' 
 
 const CreatePost = () => {
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  
   const titleRef = useRef();
   const authorRef = useRef();
   const contentRef = useRef();
   const tagsRef = useRef();
+  const editorRef = useRef();
+  
 
   const navigate = useNavigate()
 
@@ -19,11 +26,12 @@ const CreatePost = () => {
 
   const postsCollectionRef = collection(db, "posts");
   const createPostInDB = async () => {
-    console.log("db",authorRef.current, today, contentRef.current)
-    await addDoc(postsCollectionRef, { author: authorRef.current, date:today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current })
+    console.log("db", authorRef.current, today, contentRef.current)
+    console.log(editorRef.current)
+    await addDoc(postsCollectionRef, { author: authorRef.current, date: today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current })
   }
 
-    
+
   return (
     <>
       <button className='btn-sec' onClick={() => { navigate("/") }}>Back</button>
@@ -36,10 +44,19 @@ const CreatePost = () => {
       <input type="text" name="tags" onChange={(event) => { tagsRef.current = event.target.value }} ref={tagsRef} required />
       <label htmlFor="content">Content</label>
       <textarea type="text" name="content" onChange={(event) => { contentRef.current = event.target.value }} ref={contentRef} required />
-      <button type="submit" onClick={() => { 
+      <button type="submit" onClick={() => {
         createPostInDB()
-        console.log(titleRef.current, tagsRef.current, contentRef.current, authorRef.current)}}>Submit</button>
+        console.log(titleRef.current, tagsRef.current, contentRef.current, authorRef.current)
+      }}>Submit</button>
       {/* </form> */}
+      <Editor
+        toolbarClassName="toolbarClassName"
+        wrapperClassName="wrapperClassName"
+        editorClassName="editorClassName"
+        onEditorStateChange={(e)=>{console.log(e)}}
+        ref = {editorRef}
+
+         />
     </>
   )
 }

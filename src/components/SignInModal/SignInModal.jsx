@@ -39,6 +39,7 @@ const SignIn = (props) => {
             console.log(newUser)
         } catch {
             console.log("error")
+            console.log(userRef.current, passwordRef.current)
         }
     }
 
