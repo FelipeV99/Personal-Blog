@@ -98,7 +98,7 @@ const SignIn = (props) => {
                 </div>
             </div>
         </>,
-        document.getElementById('portal'))
+        document.getElementById('search-portal'))
     )
 }
 

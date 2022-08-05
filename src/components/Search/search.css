@@ -1,0 +1,46 @@
+.grey-2 {
+  color: #757575;
+}
+
+.dark-grey {
+  color: #444444;
+}
+
+.main-blue-bg {
+  background-color: #111D4A;
+}
+
+.light {
+  color: #F6F6F6;
+}
+
+.font-dark1 {
+  color: #1D1D1D;
+}
+
+.purple {
+  color: #4C3B4D;
+}
+
+.modal-style {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-style {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #F6F6F6;
+  z-index: 2;
+}/*# sourceMappingURL=search.css.map */

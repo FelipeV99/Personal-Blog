@@ -1,6 +1,5 @@
 import Home from './components/Home/Home'
 import CreatePost from './components/CreatePost/CreatePost'
-import LatestPosts from './components/LatestPosts/LatestPosts'
 import UniquePost from './components/UniquePost/UniquePost'
 import NavBar from './components/NavBar/NavBar'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'

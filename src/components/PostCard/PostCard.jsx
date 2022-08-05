@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { AiOutlineClockCircle, AiOutlineComment, AiOutlineEllipsis } from 'react-icons/ai'
 import './postcard.css'
 import { db } from '../../firebase-config'
-import { collection, doc, getDocs } from 'firebase/firestore'
+import { collection, doc, getDocs, query, where, onSnapshot } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 
 const PostCard = (props) => {
     const [posts, setPosts] = useState([])
+    // let queryPosts = {}
+    // const [queryPosts, setQueryPosts] = useState([])
     //we get the posts collection using the db we configured
     const postsCollectionRef = collection(db, "posts")
     //useEffect that only renders once, notice the []
@@ -27,6 +29,23 @@ const PostCard = (props) => {
         getPosts()
     }, [])
 
+
+
+    // const q = query(postsCollectionRef, where("tags", "==", "Economy"));
+
+    // useEffect(
+    //     () => {
+    //         const getQuery = async () => {
+    //             onSnapshot(q, (snapshot) => {
+    //                 snapshot.docs.forEach((doc) => {
+    //                     // console.log("data", doc.data(), typeof (doc.data()))
+    //                     setQueryPosts(doc.data().title)
+    //                 })
+    //             })
+    //         }
+    //         getQuery()
+    //     }, [])
+
     return (
         <>
             {posts.map((post) => {
@@ -35,10 +54,10 @@ const PostCard = (props) => {
                         <div className='container-card'>
                             <div className='upper'>
                                 <div className="tag-and-author">
-                                    <p className='p-tag body-squished'>{post.tags +"."}</p>
+                                    <p className='p-tag body-squished'>{post.tags + "."}</p>
                                     <p className='grey-2 font-medium p-tag body-squished'>{"By " + post.author}</p>
                                 </div>
-                            <AiOutlineEllipsis size="20" />
+                                <AiOutlineEllipsis size="20" />
                             </div>
                             <div className='flex-me'>
                                 <div className='bottom-whole-left'>

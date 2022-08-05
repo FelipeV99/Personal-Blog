@@ -1,0 +1,22 @@
+@import "../../colors";
+
+.modal-style{
+    width:fit-content;
+    max-width: 80vw;
+    height: 100vh;
+    margin:0 auto;
+    margin-top: 2.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-style{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $main-white;
+    z-index: 2;
+}
