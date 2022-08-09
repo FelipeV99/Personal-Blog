@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDom from 'react-dom'
 import './search.css'
 import { collection, query, where, onSnapshot } from "firebase/firestore";
@@ -7,13 +7,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Search = (props) => {
-    const [posts, setPosts] = useState([])
     const [queryPosts, setQueryPosts] = useState([])
-    const postsCollectionRef = collection(db, "posts");
+    const postsCollectionRef = collection(db, "posts")
+
+    const searchRef = useRef()
+    const [search, setSearch] = useState('')
 
     const navigation = useNavigate()
 
-    const q = query(postsCollectionRef, where("tags", "==", "Economy"));
+    const q = query(postsCollectionRef, where("title", "==", search))
     useEffect(
         () => {
             const getQuery = async () => {
@@ -22,20 +24,16 @@ const Search = (props) => {
                         // console.log("data", doc.data(), typeof (doc.data()))
                         let postObj = doc.data()
                         postObj['id'] = doc.id
-
                         setQueryPosts(postObj)
                     })
                 })
             }
             getQuery()
-        }, [])
-    console.log(queryPosts)
+        }, [search])
 
-    const getReal = () =>{
-        console.log("yes")
+    const handleSearch = (value) =>{
+        setSearch(value)
     }
-
-
     
 
     if (props.open)
@@ -43,7 +41,7 @@ const Search = (props) => {
         <>
         <div className='modal-style'>
             <div className="overlay-style">
-                <input type="text" placeholder='type something' />
+                <input type="text" placeholder='type something' ref={searchRef} onChange={(e)=>{handleSearch(e.target.value)}} />
                 <p onClick={props.close}>close</p>
                 <div onClick={()=>{navigation("/posts/" + queryPosts.id)}}>
                 <p onClick={props.close}>{queryPosts.title}</p>
