@@ -2,12 +2,9 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../firebase-config'
 import { collection, addDoc } from 'firebase/firestore'
-import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { EditorState } from 'draft-js'
 
 const CreatePost = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty())
 
   const titleRef = useRef();
   const authorRef = useRef();
@@ -15,9 +12,8 @@ const CreatePost = () => {
   const tagsRef = useRef();
   const editorRef = useRef();
 
-      const imgRef = useRef()
-    const inputImageRef = useRef()
-
+  const imgRef = useRef()
+  const inputImageRef = useRef()
 
   const navigate = useNavigate()
 
@@ -31,7 +27,7 @@ const CreatePost = () => {
   const createPostInDB = async () => {
     console.log("db", authorRef.current, today, contentRef.current)
     console.log(editorRef.current)
-    await addDoc(postsCollectionRef, { author: authorRef.current, date: today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current })
+    await addDoc(postsCollectionRef, { author: authorRef.current, date: today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current, postMainImage: imgRef.current })
   }
 
   const placeImage = (e) => {
@@ -45,7 +41,7 @@ const CreatePost = () => {
       },
       body: formData
     }).then(data => data.json()).then(data => {
-      console.log(data)
+      console.log(data.data.link)
       imgRef.current = data.data.link
     }).catch(error => console.log(error))
   }
