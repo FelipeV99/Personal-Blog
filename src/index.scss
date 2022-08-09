@@ -90,3 +90,11 @@ body{
 .text-align-center{
     text-align: center;
 }
+
+@media (min-width: 600px){
+    .container-85{
+        max-width: 30rem;
+        margin: auto;
+    }
+
+}
