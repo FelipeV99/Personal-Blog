@@ -41,7 +41,7 @@ const Search = (props) => {
         <>
         <div className='modal-style'>
             <div className="overlay-style">
-                <input type="text" placeholder='type something' ref={searchRef} onChange={(e)=>{handleSearch(e.target.value)}} />
+                <input className='search-input' type="text" placeholder='Type something...' ref={searchRef} onChange={(e)=>{handleSearch(e.target.value)}} />
                 <p onClick={props.close}>close</p>
                 <div onClick={()=>{navigation("/posts/" + queryPosts.id)}}>
                 <p onClick={props.close}>{queryPosts.title}</p>

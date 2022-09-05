@@ -27,7 +27,7 @@ const CreatePost = () => {
   const createPostInDB = async () => {
     console.log("db", authorRef.current, today, contentRef.current)
     console.log(editorRef.current)
-    await addDoc(postsCollectionRef, { author: authorRef.current, date: today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current, postMainImage: imgRef.current })
+    await addDoc(postsCollectionRef, { author: authorRef.current, date: today, content: contentRef.current, tags: tagsRef.current, title: titleRef.current})
   }
 
   const placeImage = (e) => {
